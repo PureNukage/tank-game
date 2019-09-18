@@ -2,7 +2,7 @@
     "id": "af91f284-b31a-4a22-9b73-009c97190d08",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "s_tank",
+    "name": "s_tank0",
     "For3D": false,
     "HTile": false,
     "VTile": false,

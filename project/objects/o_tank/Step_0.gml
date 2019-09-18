@@ -1,13 +1,10 @@
 var _acceleration = .1
 var _top_speed_backwards = 1
 var _top_speed = 2
-//if keyboard_check(ord("D")) and speed > 0 {
-//	direction -= 2
-//}
-//if keyboard_check(ord("A")) and speed > 0 {
-//	direction += 2
-//}
+
 depth = -y 
+
+turret_angle = point_direction(x,y,mouse_x,mouse_y)+270
 
 if keyboard_check(ord("W")) {
 	friction = 0

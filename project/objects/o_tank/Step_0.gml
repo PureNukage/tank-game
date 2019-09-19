@@ -1,5 +1,4 @@
 var _acceleration = .1
-var _top_speed_backwards = 1
 var _top_speed = 4
 
 depth = -y 
@@ -7,14 +6,14 @@ depth = -y
 turret_angle = point_direction(x,y,mouse_x,mouse_y)
 
 if keyboard_check(ord("W")) {
-	friction = 0
-	speed = min(speed+_acceleration, _top_speed)		//motion_add(direction, _acceleration)
+	motion_add(image_angle,1.5)
 } else if keyboard_check(ord("S")) {
-	friction = 0
-	speed = min(speed*-1, _top_speed_backwards*-1)
+	motion_add(image_angle+180,1)
 } else {
-	friction = _acceleration	
+	friction = _acceleration
 }
+
+speed = clamp(speed,0,_top_speed)
 
 if speed != 0 {
 	var _turn_amount = (keyboard_check(ord("D")) - keyboard_check(ord("A"))) * (_acceleration+1.9)
@@ -45,7 +44,7 @@ if (_a > 0) {
 	//fire an arrow
 	if mouse_check_button_pressed(mb_left) and shooting_timer == 0 {
 	    with instance_create_layer(x,y,"Instances",o_tank_shell) {
-	        direction = point_direction(x,y,mouse_x,mouse_y);
+	        direction = point_direction(x,y,mouse_x,mouse_y)
 	        speed = _hsp;
 	        zspeed = _vsp;
 	        z_gravity = -_g;
@@ -53,7 +52,7 @@ if (_a > 0) {
 	    }
 		shooting_timer = 25
 		friction = 0
-		//motion_add(turret_angle,-1)
+		motion_add(turret_angle,-2)
 	}
 	
 	target_out_of_range = false 

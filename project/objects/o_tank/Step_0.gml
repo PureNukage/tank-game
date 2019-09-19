@@ -49,6 +49,10 @@ if (_a > 0) {
 	        z = other.z;
 	    }
 	}
+	target_out_of_range = false 
+	
+} else {	//target out of range
+	target_out_of_range = true
 }
 		
 		

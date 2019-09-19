@@ -16,10 +16,11 @@ if keyboard_check(ord("W")) {
 	friction = _acceleration	
 }
 
-if speed > 0 {
+if speed != 0 {
 	var _turn_amount = (keyboard_check(ord("D")) - keyboard_check(ord("A"))) * (_acceleration+1.9)
 	direction -= _turn_amount
-	image_angle = direction
+	body_angle -= _turn_amount
+	image_angle = body_angle+270
 }
 
 //Shooting
@@ -38,9 +39,11 @@ if (_a > 0) {
         
 	var _vsp = 1 * _m;  //initial vertical speed of arrow
 	var _hsp = _c * _m;  //initial horizontal speed of arrow
+	
+	if shooting_timer > 0 shooting_timer--
         
 	//fire an arrow
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(mb_left) and shooting_timer == 0 {
 	    with instance_create_layer(x,y,"Instances",o_tank_shell) {
 	        direction = point_direction(x,y,mouse_x,mouse_y);
 	        speed = _hsp;
@@ -48,7 +51,11 @@ if (_a > 0) {
 	        z_gravity = -_g;
 	        z = other.z;
 	    }
+		shooting_timer = 25
+		friction = 0
+		//motion_add(turret_angle,-1)
 	}
+	
 	target_out_of_range = false 
 	
 } else {	//target out of range

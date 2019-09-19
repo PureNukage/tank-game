@@ -55,6 +55,14 @@
             }
         },
         {
+            "Key": "1c143c92-e080-4baf-8afc-619ed861f224",
+            "Value": {
+                "id": "7c3365da-b86c-4e84-9ec9-cd1817b85e99",
+                "resourcePath": "sprites\\s_explosion0\\s_explosion0.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "39bb913e-6212-49ff-bf24-b437927aebde",
             "Value": {
                 "id": "a6ea35df-b4c8-43c8-8d43-1a9fca663b82",
@@ -76,6 +84,14 @@
                 "id": "61dd5032-4fd7-40eb-93b3-604c4b4f1fa7",
                 "resourcePath": "views\\59667b1a-3e19-4373-bba6-210f4d845d13.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "5ef97ba2-76d0-4a75-8c97-f2e533a31a9a",
+            "Value": {
+                "id": "fe0ac2ff-5dfb-469e-829f-5a274784dd91",
+                "resourcePath": "scripts\\macros_and_enums\\macros_and_enums.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -271,6 +287,14 @@
             }
         },
         {
+            "Key": "f70fee88-4d8d-4273-950e-0bb88b4571d1",
+            "Value": {
+                "id": "67c014a3-8024-4993-a3eb-fca6c46168da",
+                "resourcePath": "objects\\o_explosion\\o_explosion.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "fccfc149-5378-4443-9acb-5c69b3c8a214",
             "Value": {
                 "id": "5429b8ff-0520-430c-a422-998dc5ba573f",
@@ -280,7 +304,7 @@
         }
     ],
     "script_order": [
-        
+        "5ef97ba2-76d0-4a75-8c97-f2e533a31a9a"
     ],
     "tutorial": ""
 }

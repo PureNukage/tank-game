@@ -22,17 +22,36 @@ if speed > 0 {
 	image_angle = direction
 }
 
-if keyboard_check_pressed(vk_space) {
-	if muzzle_timer == 0 {
-		muzzle_timer = 7
-	} else {
-		muzzle_timer--
-		var _muzzle_x_1 = x + lengthdir_x(16, image_angle)
-		var _muzzle_y_1 = y + lengthdir_y(16, image_angle)
-		instance_create_layer(_muzzle_x_1+random_range(-4,4),_muzzle_y_1+random_range(-4,4),"Instances",o_muzzleflash)
+//Shooting
+var _v = 8; //bullet speed
+var _v2 = _v * _v; 
+var _g = 0.2;  //strength of gravity
+
+var _x = point_distance(x,y,mouse_x,mouse_y);
+var _z = target_height - z; //if target and shooter can be at different heights
+var _a = _v2 * _v2 - _g * (_g * _x * _x + 2 * _z * _v2);
+if (_a > 0) {
+	var _b = (_v2 - sqrt(_a) ) / ( _g * _x)
+	// { var _b = (_v2 + sqrt(_a) ) / ( _g * _x); }
+	var _c = 1 / _b;
+	var _m = sign(_b) * _v / sqrt(1 + _c * _c);
+        
+	var _vsp = 1 * _m;  //initial vertical speed of arrow
+	var _hsp = _c * _m;  //initial horizontal speed of arrow
+        
+	//fire an arrow
+	if mouse_check_button_pressed(mb_left) {
+	    with instance_create_layer(x,y,"Instances",o_tank_shell) {
+	        direction = point_direction(x,y,mouse_x,mouse_y);
+	        speed = _hsp;
+	        zspeed = _vsp;
+	        z_gravity = -_g;
+	        z = other.z;
+	    }
 	}
-	instance_create_layer(x+1,y,"Instances",o_tank_shell)	
 }
+		
+		
 if speed > 0 {
 	var _dust_x_1 = x + lengthdir_x(16, image_angle+90) //16
 	var _dust_y_1 = y + lengthdir_y(16, image_angle+90)

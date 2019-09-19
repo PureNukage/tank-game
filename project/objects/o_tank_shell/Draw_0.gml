@@ -1,4 +1,3 @@
-for (var i = 17; i < image_number+17; i++) 
-{
-draw_sprite_ext(sprite_index, i, x, y - i, image_xscale, image_yscale, image_angle, c_white, image_alpha);
-}
+draw_sprite_ext(sprite_index,image_index,x,y,1,1,direction,c_black,0.25);
+
+draw_sprite_ext(sprite_index,image_index,x,y-z,1,1,image_angle,c_white,1);

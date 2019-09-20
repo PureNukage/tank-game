@@ -71,3 +71,6 @@ if speed > 0 {
 	var _dust_y_2 = y - lengthdir_y(16, image_angle+90)
 	instance_create_layer(_dust_x_2+random_range(-4,4),_dust_y_2+random_range(-4,4),"Instances",o_dust)
 }
+
+x = clamp(x, 0, room_width);
+y = clamp(y, 0, room_height);

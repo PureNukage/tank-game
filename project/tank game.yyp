@@ -31,11 +31,35 @@
     },
     "resources": [
         {
+            "Key": "05494935-cac5-4172-9d5c-bdfd95bb54ab",
+            "Value": {
+                "id": "9918c281-9f84-425f-ba3a-b2484ea1c1a6",
+                "resourcePath": "views\\05494935-cac5-4172-9d5c-bdfd95bb54ab.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "07052d37-09ff-4bb0-8d69-9d3243b604c9",
+            "Value": {
+                "id": "839d8e99-0db6-410d-a744-9feb2f84798d",
+                "resourcePath": "sprites\\s_enemy_spawner\\s_enemy_spawner.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0ae3b385-ff36-4c70-bd99-33e6306fad2c",
             "Value": {
                 "id": "a8954263-ae1e-4d1f-bf72-7db948195b3a",
                 "resourcePath": "views\\0ae3b385-ff36-4c70-bd99-33e6306fad2c.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "0e0ddd58-54ae-4ee2-a0e0-3d3ef38eb38e",
+            "Value": {
+                "id": "b9e30c85-b10d-4103-849f-e74250f4cf14",
+                "resourcePath": "sprites\\s_enemy_death_splatter2\\s_enemy_death_splatter2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -95,11 +119,27 @@
             }
         },
         {
+            "Key": "302bdbb3-47c3-4c0d-992e-d5c67a001e40",
+            "Value": {
+                "id": "fbfa96f0-69fc-41f6-ae2a-84a6ff317ac0",
+                "resourcePath": "tilesets\\tileset0\\tileset0.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "39bb913e-6212-49ff-bf24-b437927aebde",
             "Value": {
                 "id": "a6ea35df-b4c8-43c8-8d43-1a9fca663b82",
                 "resourcePath": "objects\\o_muzzleflash\\o_muzzleflash.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "43e8be49-8809-4483-ac29-42ea85b1bfc0",
+            "Value": {
+                "id": "96bdc190-7063-4977-b9bb-bb107529cb0d",
+                "resourcePath": "sprites\\s_enemy_death_splatter5\\s_enemy_death_splatter5.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -132,6 +172,14 @@
                 "id": "c139c4aa-3a71-4250-b57b-c132d604b1af",
                 "resourcePath": "views\\57440a70-f46b-4947-94f2-c354981b2ca1.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "5911c486-6c79-42e3-80e1-6b88c07aba83",
+            "Value": {
+                "id": "680d41d6-78b7-458a-bf4d-7ba6e98d43f1",
+                "resourcePath": "sprites\\s_enemy_death_splatter3\\s_enemy_death_splatter3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -191,6 +239,14 @@
             }
         },
         {
+            "Key": "7cb67515-cf88-471f-908a-94f27fc300f2",
+            "Value": {
+                "id": "1afd71ad-8cad-44ae-803d-edab9c25adf7",
+                "resourcePath": "shaders\\shader_flashWhite\\shader_flashWhite.yy",
+                "resourceType": "GMShader"
+            }
+        },
+        {
             "Key": "84c01f65-9316-4574-aab8-6fb155a5c2f7",
             "Value": {
                 "id": "e22a0973-66c9-4951-bb06-a15963d0e8d7",
@@ -247,6 +303,14 @@
             }
         },
         {
+            "Key": "a3b82d5d-53b0-49da-a131-0ed0d2338b4f",
+            "Value": {
+                "id": "c57f33fe-23be-419c-91b8-bf0b61a60bca",
+                "resourcePath": "sprites\\s_enemy_death_splatter0\\s_enemy_death_splatter0.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a7cf4c64-ae16-4a3b-8ab9-45fc2ca3482d",
             "Value": {
                 "id": "e2a640bd-19b0-43c8-8282-81a6b2757ec2",
@@ -275,6 +339,14 @@
             "Value": {
                 "id": "16d0eb71-cb5c-4a6f-8f13-55e62379d9ce",
                 "resourcePath": "sprites\\s_tank0\\s_tank0.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b75470af-cc2f-4374-8185-404474744b2d",
+            "Value": {
+                "id": "27360b55-a3a8-4011-9fd7-a593afaa34d7",
+                "resourcePath": "sprites\\s_enemy_death_splatter1\\s_enemy_death_splatter1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -399,11 +471,27 @@
             }
         },
         {
+            "Key": "e85f4696-1783-4581-a74e-97161e45045f",
+            "Value": {
+                "id": "11931b9e-8f0f-4937-97b9-c395bdc0accb",
+                "resourcePath": "sprites\\s_enemy_death_splatter4\\s_enemy_death_splatter4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f2261152-f9bb-479c-aec1-6c4734ac3c1c",
             "Value": {
                 "id": "263a9445-df31-49ba-a365-72ad3a72fd70",
                 "resourcePath": "views\\f2261152-f9bb-479c-aec1-6c4734ac3c1c.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f40fdc6b-fd7d-4d92-ae38-dd4c190e41c7",
+            "Value": {
+                "id": "efd551cd-0679-44b9-97ed-006600ce717c",
+                "resourcePath": "sprites\\s_tiles\\s_tiles.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

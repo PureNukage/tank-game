@@ -1,11 +1,8 @@
 count = 0
 frame_current = 0
-frame[0] = s_enemy_death0
-frame[1] = s_enemy_death1
-frame[2] = s_enemy_death2
-frame[3] = s_enemy_death3
-frame[4] = s_enemy_death4
-frame[5] = s_enemy_death5
-frame[6] = s_enemy_death6
-frame[7] = s_enemy_death7
-image_angle = irandom_range(0,360)
+frame[0] = s_enemy_death_splatter0
+frame[1] = s_enemy_death_splatter1
+frame[2] = s_enemy_death_splatter2
+frame[3] = s_enemy_death_splatter3
+frame[4] = s_enemy_death_splatter4
+frame[5] = s_enemy_death_splatter5

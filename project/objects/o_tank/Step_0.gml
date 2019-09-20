@@ -22,6 +22,19 @@ if speed != 0 {
 	image_angle = body_angle+270
 }
 
+if ds_list_size(list_enemies) >= 5 and flash == 0 {
+	hp -= 25
+	ds_list_clear(list_enemies)
+	flash = 25
+}
+
+if hp <= 0 {
+	show_message("You died!")
+	game_restart()
+}
+
+if flash flash--
+
 //Shooting
 var _v = 8; //bullet speed
 var _v2 = _v * _v; 

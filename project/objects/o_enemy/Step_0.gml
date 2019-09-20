@@ -8,6 +8,17 @@ if count == 32 {
 	count = 0
 }
 
+var tank_hitbox = 48
+if x > o_tank.x-tank_hitbox and x < o_tank.x+tank_hitbox and y < o_tank.y+tank_hitbox and y > o_tank.y-tank_hitbox {
+	if ds_list_find_index(o_tank.list_enemies,id) == -1 and o_tank.flash == 0 {
+		ds_list_add(o_tank.list_enemies,id)
+	}	
+} else {
+	if ds_list_find_index(o_tank.list_enemies,id) != -1 {
+		ds_list_delete(o_tank.list_enemies,ds_list_find_index(o_tank.list_enemies,id))
+	}		
+}
+
 image_angle = point_direction(x,y,o_tank.x,o_tank.y)
 
 mp_potential_step_object(o_tank.x,o_tank.y,1,o_enemy)

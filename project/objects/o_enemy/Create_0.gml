@@ -4,3 +4,4 @@ frame[1] = s_enemy_run1
 count = 0
 frame_current = 0
 
+

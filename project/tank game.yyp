@@ -66,7 +66,7 @@
             "Key": "10e3b5e4-e8cf-4a89-97b7-757eb1ad5709",
             "Value": {
                 "id": "67a91142-e263-4615-9e5a-f3c67b4d643b",
-                "resourcePath": "objects\\o_enemy\\o_enemy.yy",
+                "resourcePath": "objects\\enemy\\enemy.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -95,6 +95,14 @@
             }
         },
         {
+            "Key": "1a0e3652-b35e-4b49-ad15-3441befc422f",
+            "Value": {
+                "id": "e980b425-3b61-48d0-9be4-f24e1f1e88ea",
+                "resourcePath": "objects\\playerInput\\playerInput.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "1c143c92-e080-4baf-8afc-619ed861f224",
             "Value": {
                 "id": "7c3365da-b86c-4e84-9ec9-cd1817b85e99",
@@ -106,7 +114,7 @@
             "Key": "27d4a492-5b2c-49d4-8560-b7d14347fbf9",
             "Value": {
                 "id": "eac6fead-eac9-4a24-bda9-4e0f9ebc78ac",
-                "resourcePath": "objects\\o_enemy_dead\\o_enemy_dead.yy",
+                "resourcePath": "objects\\enemyDead\\enemyDead.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -119,6 +127,14 @@
             }
         },
         {
+            "Key": "2c1f7724-b19a-45fe-b9ff-8401a833e72c",
+            "Value": {
+                "id": "bed2b0f2-463e-4809-b05a-5ba542cd8c2c",
+                "resourcePath": "objects\\rmMainMenu\\rmMainMenu.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "302bdbb3-47c3-4c0d-992e-d5c67a001e40",
             "Value": {
                 "id": "fbfa96f0-69fc-41f6-ae2a-84a6ff317ac0",
@@ -127,10 +143,18 @@
             }
         },
         {
+            "Key": "3573ce54-104f-4b3d-9cfd-378454f6bca4",
+            "Value": {
+                "id": "61e32606-59c3-4315-a2e8-c62b21356786",
+                "resourcePath": "objects\\runtimeStart\\runtimeStart.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "39bb913e-6212-49ff-bf24-b437927aebde",
             "Value": {
                 "id": "a6ea35df-b4c8-43c8-8d43-1a9fca663b82",
-                "resourcePath": "objects\\o_muzzleflash\\o_muzzleflash.yy",
+                "resourcePath": "objects\\muzzleflash\\muzzleflash.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -247,6 +271,14 @@
             }
         },
         {
+            "Key": "82e8e7a4-1f9e-4ba3-972f-90a6c65ac0b9",
+            "Value": {
+                "id": "3ba696c5-ae1a-4771-977c-86468e45d1b0",
+                "resourcePath": "objects\\inputHandler\\inputHandler.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "84c01f65-9316-4574-aab8-6fb155a5c2f7",
             "Value": {
                 "id": "e22a0973-66c9-4951-bb06-a15963d0e8d7",
@@ -319,6 +351,14 @@
             }
         },
         {
+            "Key": "a852b301-977b-44fe-894f-fe132b174285",
+            "Value": {
+                "id": "6317dd11-0b27-481e-9d8b-2dc8f177d196",
+                "resourcePath": "rooms\\rmMainMenu0\\rmMainMenu0.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "a9188620-a624-4a5a-83ae-a1b53faf038b",
             "Value": {
                 "id": "04de5571-9842-4d1e-b27c-7ede7084357c",
@@ -330,7 +370,7 @@
             "Key": "af3c5ea2-8895-4131-8865-331f3a62874b",
             "Value": {
                 "id": "9173e68a-cd63-44d4-a2cd-bdcffad26dd6",
-                "resourcePath": "objects\\o_enemy_spawner\\o_enemy_spawner.yy",
+                "resourcePath": "objects\\enemySpawner\\enemySpawner.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -402,7 +442,7 @@
             "Key": "ce9e502d-9811-4cbe-a2f6-db1f8aacf9e3",
             "Value": {
                 "id": "82756e0a-eb2e-4a5d-b983-3912de2caec3",
-                "resourcePath": "objects\\o_tank_shell\\o_tank_shell.yy",
+                "resourcePath": "objects\\mortarRound\\mortarRound.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -455,10 +495,18 @@
             }
         },
         {
+            "Key": "de0a04cb-ebb4-40cf-b4f5-7d48079433af",
+            "Value": {
+                "id": "bbc7d92a-ce74-42b5-9726-6a1649ca0b76",
+                "resourcePath": "objects\\computerInput\\computerInput.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e496f03f-867f-43b1-8d6e-6a954ec8ed0d",
             "Value": {
                 "id": "f9f4f3da-56cd-46b7-8e9f-08672c150b2a",
-                "resourcePath": "objects\\o_dust\\o_dust.yy",
+                "resourcePath": "objects\\dust\\dust.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -514,7 +562,7 @@
             "Key": "f6005a24-3b5b-40d3-8f69-168e784681be",
             "Value": {
                 "id": "712a1bce-9028-4e35-a6c7-875a7f7cc7fb",
-                "resourcePath": "objects\\controller\\controller.yy",
+                "resourcePath": "objects\\cursor\\cursor.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -522,7 +570,7 @@
             "Key": "f70fee88-4d8d-4273-950e-0bb88b4571d1",
             "Value": {
                 "id": "67c014a3-8024-4993-a3eb-fca6c46168da",
-                "resourcePath": "objects\\o_explosion\\o_explosion.yy",
+                "resourcePath": "objects\\explosion\\explosion.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -530,7 +578,7 @@
             "Key": "fccfc149-5378-4443-9acb-5c69b3c8a214",
             "Value": {
                 "id": "5429b8ff-0520-430c-a422-998dc5ba573f",
-                "resourcePath": "objects\\o_tank\\o_tank.yy",
+                "resourcePath": "objects\\tank\\tank.yy",
                 "resourceType": "GMObject"
             }
         }

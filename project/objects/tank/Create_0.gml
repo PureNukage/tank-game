@@ -7,3 +7,4 @@ shooting_timer = 0
 hp = 100
 list_enemies = ds_list_create()
 flash = 0
+input_handler = instance_create_layer(0,0,"Instances",playerInput)

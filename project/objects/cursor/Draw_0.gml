@@ -1,4 +1,4 @@
-if o_tank.target_out_of_range == true {
+if tank.target_out_of_range == true {
 	cursor_color = c_red	
 } else {
 	cursor_color = c_black	

@@ -1,10 +1,10 @@
 button_width = 128
 button_height = 64
 
-field0[0,0] = 400
-field0[0,1] = 285
-field0[0,2] = 0
+button[0,0] = 400
+button[0,1] = 285
+button[0,2] = 0
 
-field1[0,0] = 400
-field1[0,1] = 400
-field1[0,2] = 0
+button[1,0] = 400
+button[1,1] = 400
+button[1,2] = 0

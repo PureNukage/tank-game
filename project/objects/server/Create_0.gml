@@ -1,0 +1,1 @@
+socket = network_create_socket_ext(network_socket_udp,7000)

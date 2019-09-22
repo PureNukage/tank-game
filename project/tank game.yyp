@@ -154,7 +154,7 @@
             "Key": "3573ce54-104f-4b3d-9cfd-378454f6bca4",
             "Value": {
                 "id": "61e32606-59c3-4315-a2e8-c62b21356786",
-                "resourcePath": "objects\\runtimeStart\\runtimeStart.yy",
+                "resourcePath": "objects\\runtime\\runtime.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -164,6 +164,14 @@
                 "id": "a6ea35df-b4c8-43c8-8d43-1a9fca663b82",
                 "resourcePath": "objects\\muzzleflash\\muzzleflash.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "39dc5a86-db85-4e49-bf86-d0d47fabb95f",
+            "Value": {
+                "id": "a843879a-df41-4d19-8d25-c6f209fa395e",
+                "resourcePath": "scripts\\packet_reader\\packet_reader.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -487,6 +495,14 @@
             }
         },
         {
+            "Key": "daa191b9-bc9f-4f43-baaf-c49aa83ff050",
+            "Value": {
+                "id": "07888835-c17f-4be4-b6f3-6e055e9adb0b",
+                "resourcePath": "scripts\\mid0_sign_in_request\\mid0_sign_in_request.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "daa664a5-d68a-4c08-aaf2-c98204de4ed1",
             "Value": {
                 "id": "d53e04f4-2552-45c7-8880-0167a22c2a0d",
@@ -519,6 +535,14 @@
             }
         },
         {
+            "Key": "df5d63ca-780d-482b-94ca-d2dbe82e41b1",
+            "Value": {
+                "id": "6ed4879c-6f27-4537-9ddd-b80201e7871f",
+                "resourcePath": "scripts\\mid2_tank_event\\mid2_tank_event.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e496f03f-867f-43b1-8d6e-6a954ec8ed0d",
             "Value": {
                 "id": "f9f4f3da-56cd-46b7-8e9f-08672c150b2a",
@@ -540,6 +564,14 @@
                 "id": "11931b9e-8f0f-4937-97b9-c395bdc0accb",
                 "resourcePath": "sprites\\s_enemy_death_splatter4\\s_enemy_death_splatter4.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e8cde9fe-f156-4971-be2e-e4eb6c998438",
+            "Value": {
+                "id": "e922ac2c-2ffd-406e-bd57-2ed825d8bc07",
+                "resourcePath": "views\\e8cde9fe-f156-4971-be2e-e4eb6c998438.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -608,7 +640,10 @@
         }
     ],
     "script_order": [
-        "5ef97ba2-76d0-4a75-8c97-f2e533a31a9a"
+        "5ef97ba2-76d0-4a75-8c97-f2e533a31a9a",
+        "39dc5a86-db85-4e49-bf86-d0d47fabb95f",
+        "daa191b9-bc9f-4f43-baaf-c49aa83ff050",
+        "df5d63ca-780d-482b-94ca-d2dbe82e41b1"
     ],
     "tutorial": ""
 }

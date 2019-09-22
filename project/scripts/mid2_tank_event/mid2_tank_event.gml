@@ -1,0 +1,16 @@
+with network {
+	buffer_seek(send_buffer,buffer_seek_start,0)
+	buffer_write(send_buffer,buffer_u8,2)
+	buffer_write(send_buffer,buffer_u32,packet)
+	buffer_write(send_buffer,buffer_u32,other.ID)
+	//buffer_write(send_buffer,buffer_u32,other.input_handler.key_right)
+	//buffer_write(send_buffer,buffer_u32,other.input_handler.key_left)
+	//buffer_write(send_buffer,buffer_u32,other.input_handler.key_up)
+	//buffer_write(send_buffer,buffer_u32,other.input_handler.key_down)
+	buffer_write(send_buffer,buffer_u32,other.input_handler.horizontal_input)
+	buffer_write(send_buffer,buffer_u32,other.input_handler.vertical_input)
+	buffer_write(send_buffer,buffer_u32,other.input_handler.mouse_left_pressed)
+	buffer_write(send_buffer,buffer_u32,other.input_handler.cursor_x)
+	buffer_write(send_buffer,buffer_u32,other.input_handler.cursor_y)
+	ds_stack_push(packet_list,send_buffer)
+}

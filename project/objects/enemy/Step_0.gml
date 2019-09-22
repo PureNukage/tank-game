@@ -8,20 +8,22 @@ if count == 32 {
 	count = 0
 }
 
-var tank_hitbox = 48
-if x > tank.x-tank_hitbox and x < tank.x+tank_hitbox and y < tank.y+tank_hitbox and y > tank.y-tank_hitbox {
-	if ds_list_find_index(tank.list_enemies,id) == -1 and tank.flash == 0 {
-		ds_list_add(tank.list_enemies,id)
-	}	
-} else {
-	if ds_list_find_index(tank.list_enemies,id) != -1 {
-		ds_list_delete(tank.list_enemies,ds_list_find_index(tank.list_enemies,id))
-	}		
+if ds_list_size(network.playerList) > 0 {
+	var tank_hitbox = 48
+	if x > tank.x-tank_hitbox and x < tank.x+tank_hitbox and y < tank.y+tank_hitbox and y > tank.y-tank_hitbox {
+		if ds_list_find_index(tank.list_enemies,id) == -1 and tank.flash == 0 {
+			ds_list_add(tank.list_enemies,id)
+		}	
+	} else {
+		if ds_list_find_index(tank.list_enemies,id) != -1 {
+			ds_list_delete(tank.list_enemies,ds_list_find_index(tank.list_enemies,id))
+		}		
+	}
+
+	image_angle = point_direction(x,y,tank.x,tank.y)
+
+	mp_potential_step_object(tank.x,tank.y,1,enemy)
 }
-
-image_angle = point_direction(x,y,tank.x,tank.y)
-
-mp_potential_step_object(tank.x,tank.y,1,enemy)
 
 if instance_place(x,y,explosion) {
 	var _explosion = instance_place(x,y,explosion)

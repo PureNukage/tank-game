@@ -1,0 +1,1 @@
+delta = max(1,(room_speed/1000000*delta_time))

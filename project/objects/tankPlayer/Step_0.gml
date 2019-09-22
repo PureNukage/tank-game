@@ -6,10 +6,10 @@ if hp <= 0 {
 	game_restart()
 }
 
-if mid2 == 4 {
-	mid2_tank_event()
-	mid2 = 0
-} else mid2++
+if mid10 == 4 {
+	mid10_tank_event()
+	mid10 = 0
+} else mid10++
 
 //buffer_seek(buffer,buffer_seek_start,0)
 //buffer_write(buffer,buffer_u8,1)

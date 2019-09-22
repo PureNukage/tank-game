@@ -8,7 +8,7 @@ if count == 32 {
 	count = 0
 }
 
-if ds_list_size(network.playerList) > 0 {
+if ds_list_size(network.player_list) > 0 {
 	var tank_hitbox = 48
 	if x > tank.x-tank_hitbox and x < tank.x+tank_hitbox and y < tank.y+tank_hitbox and y > tank.y-tank_hitbox {
 		if ds_list_find_index(tank.list_enemies,id) == -1 and tank.flash == 0 {

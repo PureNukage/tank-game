@@ -1,8 +1,8 @@
 {
-    "id": "b2f5eafe-7e74-46a3-b54e-54b967913964",
+    "id": "df5d63ca-780d-482b-94ca-d2dbe82e41b1",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "script7",
+    "name": "mid10_nw_playerInput",
     "IsCompatibility": false,
     "IsDnD": false
 }

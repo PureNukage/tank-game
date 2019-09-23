@@ -10,3 +10,6 @@ mouse_left_pressed = mouse_check_button_pressed(mb_left)
 
 horizontal_input = (key_right-key_left)
 vertical_input = (key_up-key_down)
+
+mid10_nw_playerInput()
+

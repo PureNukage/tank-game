@@ -1,3 +1,4 @@
+ping = 0
 packet = 0
 packet_received = 0
 packet_queue_hp = ds_queue_create()
@@ -8,6 +9,9 @@ socket = network_create_socket(network_socket_udp)
 name = get_string("Nickname","")
 player_list = ds_list_create()
 handshake = 0
+mids = 4
 
 send_buffer = buffer_create(1024,buffer_fixed,1)
+
+instance_create_layer(0,0,"Instances",playerInput)
 

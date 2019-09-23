@@ -10,3 +10,5 @@ cursor_y = 0
 // Updated in Step 
 horizontal_input = 0
 vertical_input = 0
+
+mouse_left_pressed = 0

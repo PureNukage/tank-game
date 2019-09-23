@@ -7,16 +7,20 @@ switch(mid) {
 		
 		var new_players_number = ds_list_size(server.player_list)
 		
-		if server.packet_in[new_players_number,mid] == -1 {
-			show_message("mid 0 received!")
-			server.handshake[new_players_number]++
+		if _packet > server.packet_in[new_players_number,0] and server.packet_in[new_players_number,0] != -1 {
+			//show_message("mid 0 received!")
+			//show_message(string(new_players_number))
+			server.handshake[new_players_number] = 1
 			server.handshake[new_players_number+1] = 0
-			server.packet_in[new_players_number,mid] = _packet
+			server.packet_in[new_players_number,mid] = -1
 			ds_list_add(server.player_list,_name)
 			ds_list_add(server.ip_list,server.remote_ip)
 			ds_list_add(server.port_list,server.remote_port)
-			server.packet_in[new_players_number+1,0] = -1
-			server.packet_out[new_players_number+1,1] = 0
+			for(var i=0;i<network.mids;i++) {
+				server.packet_in[new_players_number,i] = -1
+				server.packet_in[new_players_number+1,i] = -1
+				server.packet_out[new_players_number+1,i] = -1
+			}
 		}
 		
 		
@@ -35,8 +39,17 @@ switch(mid) {
 		var _packet = buffer_read(buffer,buffer_u32)
 		var _ID = buffer_read(buffer,buffer_u8)
 		
-		if packet_in[_ID] == -1 {
+		//show_message("Packet: "+string(_packet))		
+		//show_message("ID: "+string(_ID))
+		
+		if server.packet_in[_ID,mid] == -1 {
+			//show_message("server received mid2")
+			server.packet_in[_ID,mid] = _packet
 			server.handshake[_ID]++
+			server.handshake[_ID]++
+			for(var i=0;i<ds_list_size(server.player_list);i++) {
+				server.handshake[i]--	
+			}
 		}	
 		
 		
@@ -44,30 +57,46 @@ switch(mid) {
 	case 3:		//Network - Player Join
 		var _player_list_compiled = buffer_read(buffer,buffer_string)
 		var _ID = buffer_read(buffer,buffer_u32)
-		var _player_list
+		var _player_list = ds_list_create()
 		_player_list = ds_list_read(_player_list,_player_list_compiled)
 		
-		if ds_list_size(network.player_list) < ds_list_size(_player_list) {
-			var old = ds_list_size(network.player_list) 
-			var new = ds_list_size(_player_list)
-			var difference = new - old
-			for(var i=old;i<new;i++) {
-				if i == _ID {
-					
-				} else {
-					var newplayer = instance_create_layer(0,0,"Instances",tankPlayer)
-					instance_destroy(newplayer.input_handler)
-					newplayer.input_handler = instance_create_layer(0,0,"Instances",computerInput)
+		if handshake == 1 {
+			if ds_list_size(network.player_list) < ds_list_size(_player_list) {
+				var old = ds_list_size(network.player_list) 
+				var new = ds_list_size(_player_list)
+				for(var i=old;i<new;i++) {
+					var newplayer = instance_create_layer(0,0,"Instances",tankPlayer)	
+					if _ID != network.ID { 
+						//instance_destroy(newplayer.input_handler)
+						//newplayer.input_handler = instance_create_layer(0,0,"Instances",multiplayerInput)
+					}
+					newplayer.ID = i
 				}
-				newplayer.ID = i
 			}
+			handshake++
 		}
 
 		
 		
 		
 	break;
-	case 4:
+	case 4:		// Server - Ping 
+		var _ID = buffer_read(buffer,buffer_u32)
+		var _client_time = buffer_read(buffer,buffer_u32)
+		
+		if server.handshake[_ID] == 2 server.handshake[_ID] = 3
+		
+		mid5_sv_ping(_ID,_client_time)
+		
+	break;
+	case 5:		// Network - Ping
+		var _ID = buffer_read(buffer,buffer_u32)
+		var _client_time_previous = buffer_read(buffer,buffer_u32)
+		
+		network.ping = current_time - _client_time_previous
+		
+	break;
+	case 10:	// Server - Player Input Packet
 
 		var _ID = buffer_read(buffer,buffer_u32)
 		var _horizontal_input = buffer_read(buffer,buffer_u32)
@@ -85,16 +114,6 @@ switch(mid) {
 				cursor_y = _cursor_y
 			}
 		}
-		
-		if instance_exists(server) {
-			if server.remote_ip != network.ip {
-				for(var i=0;i<ds_list_size(network.player_list);i++)	 {
-					var _ip = ds_list_find_value(server.ip_list,i)
-					var _port = ds_list_find_value(server.port_list,i)
-					network_send_udp(server.socket,_ip,_port,buffer,buffer_tell(buffer))
-				}
-			}
-		}
-		
+
 	break;
 }

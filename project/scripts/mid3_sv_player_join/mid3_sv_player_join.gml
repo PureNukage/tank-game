@@ -11,4 +11,5 @@ with network {
 	buffer_write(send_buffer,buffer_u32,ds_list_find_index(server.ip_list,_remote_ip))
 
 	network_send_udp(server.socket,_remote_ip,_remote_port,send_buffer,buffer_tell(send_buffer))
+	show_debug_message("server sent mid3")
 }	

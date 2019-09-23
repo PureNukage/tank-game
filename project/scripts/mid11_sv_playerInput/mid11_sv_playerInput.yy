@@ -1,8 +1,8 @@
 {
-    "id": "df5d63ca-780d-482b-94ca-d2dbe82e41b1",
+    "id": "1cca442c-542c-48c7-89fb-6c97a0617000",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "mid10_tank_event",
+    "name": "mid11_sv_playerInput",
     "IsCompatibility": false,
     "IsDnD": false
 }

@@ -54,7 +54,7 @@ switch(mid) {
 			server.handshake[_ID]++
 			server.handshake[_ID]++
 			for(var i=0;i<ds_list_size(server.player_list);i++) {
-				server.handshake[i] = 1	
+				server.handshake[i]--
 				show_message("handshake for player "+string(i) +" "+string(server.handshake[i]))
 			}
 		}	

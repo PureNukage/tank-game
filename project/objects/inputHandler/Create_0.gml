@@ -12,3 +12,5 @@ horizontal_input = 0
 vertical_input = 0
 
 mouse_left_pressed = 0
+
+ds_list_add(debug.object,id)

@@ -5,11 +5,13 @@ for(var i=0;i<2;i++) {
 			switch(i) {
 				case 0:
 					instance_create_layer(0,0,"Instances",network)
+					instance_create_layer(0,0,"Instances",debug)
 					room_goto_next()
 				break;
 				case 1:
 					instance_create_layer(0,0,"Instances",server)
 					instance_create_layer(0,0,"Instances",network)
+					instance_create_layer(0,0,"Instances",debug)
 					room_goto_next()
 				break;
 			}

@@ -8,8 +8,10 @@ port = 7000
 port_client = get_integer("Port: ",7001)
 socket = network_create_socket_ext(network_socket_udp,port_client)
 name = get_string("Nickname","")
+player_count = 0
 player_list = ds_list_create()
 handshake = 0
+handshake_sent = 0
 mids = 4
 
 send_buffer = buffer_create(1024,buffer_fixed,1)

@@ -1,8 +1,6 @@
 ping = 0
 packet = 0
 packet_received = 0
-packet_queue_hp = ds_queue_create()
-packet_queue_lp = ds_queue_create()
 ip = "127.0.0.1"
 port = 7000
 port_client = get_integer("Port: ",7001)

@@ -4,13 +4,11 @@ socket = network_create_socket_ext(network_socket_udp,port)
 remote_ip = 0
 remote_port = 0
 
-packet_queue_hp = ds_queue_create()
-packet_queue_lp = ds_queue_create()
-
 packet = 0
 packet_in[0,0] = -1
 packet_out[0,0] = -1
 packet_out[0,1] = -1
+packet_stack[0,0] = ds_queue_create()
 handshake[0] = 0
 handshake_sent[0] = 0		//	handshake_sent[ID] = packet
 player_list = ds_list_create()

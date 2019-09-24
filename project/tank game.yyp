@@ -178,7 +178,7 @@
             "Key": "37d52400-32cf-4936-b89e-25c062f29844",
             "Value": {
                 "id": "f7c59bb7-1e2f-4270-81f1-27ddb526a93b",
-                "resourcePath": "scripts\\mid4_nw_ping\\mid4_nw_ping.yy",
+                "resourcePath": "scripts\\mid5_nw_ping\\mid5_nw_ping.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -332,6 +332,14 @@
                 "id": "1afd71ad-8cad-44ae-803d-edab9c25adf7",
                 "resourcePath": "shaders\\shader_flashWhite\\shader_flashWhite.yy",
                 "resourceType": "GMShader"
+            }
+        },
+        {
+            "Key": "7e679e73-e64b-49c2-80b9-0211ea12d37c",
+            "Value": {
+                "id": "91b4a65c-26ce-4b45-b8f1-05f75d35b8af",
+                "resourcePath": "scripts\\mid4_nw_player_join_ack\\mid4_nw_player_join_ack.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -530,7 +538,7 @@
             "Key": "d36328f0-3134-4561-a5e1-81e2ec40e3c5",
             "Value": {
                 "id": "08f93342-a001-45b4-9204-49f70963c680",
-                "resourcePath": "scripts\\mid5_sv_ping\\mid5_sv_ping.yy",
+                "resourcePath": "scripts\\mid6_sv_ping\\mid6_sv_ping.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -650,7 +658,7 @@
             "Key": "ecfe358c-b639-4a9b-94d2-2dc86006286a",
             "Value": {
                 "id": "1903296e-0d81-4ecd-8272-865daaac8d2b",
-                "resourcePath": "scripts\\mid3_sv_player_join\\mid3_sv_player_join.yy",
+                "resourcePath": "scripts\\mid3_sv_player_join_syn\\mid3_sv_player_join_syn.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -726,6 +734,7 @@
         "0309eb72-4d38-4c14-a31e-343b36927250",
         "b71db74e-ace5-45eb-a06b-43f572180157",
         "ecfe358c-b639-4a9b-94d2-2dc86006286a",
+        "7e679e73-e64b-49c2-80b9-0211ea12d37c",
         "37d52400-32cf-4936-b89e-25c062f29844",
         "d36328f0-3134-4561-a5e1-81e2ec40e3c5",
         "df5d63ca-780d-482b-94ca-d2dbe82e41b1",

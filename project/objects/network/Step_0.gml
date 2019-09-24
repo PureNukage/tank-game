@@ -16,7 +16,7 @@ switch(handshake)
 		} else packet++
 	break;
 	case 2:
-		mid4_nw_ping()
+		mid5_nw_ping()
 	break;
 }
 

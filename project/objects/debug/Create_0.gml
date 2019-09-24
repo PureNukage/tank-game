@@ -1,9 +1,7 @@
-mode = false
-object_index_current = server
+mode = 0
 object_index_count = 0
-object = ds_list_create()
-if instance_exists(server) ds_list_add(object,server.id)
-ds_list_add(object,network.id)
-ds_list_add(object,playerInput.id)
-object_id = object[| object_index_count]
+objects = ds_list_create()
+ds_list_add(objects,runtime.id)
+object_id = objects[| 0]
 object_variable_array = variable_instance_get_names(object_id)
+log = ds_list_create()

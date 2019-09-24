@@ -9,7 +9,9 @@ with network {
 	buffer_write(send_buffer,buffer_string,_list)
 	
 	buffer_write(send_buffer,buffer_u32,ds_list_find_index(server.ip_list,_remote_ip))
+	
+	ds_list_add(debug.log,"server - mids3 contents ID: "+string(ds_list_find_index(server.ip_list,_remote_ip)))
 
 	network_send_udp(server.socket,_remote_ip,_remote_port,send_buffer,buffer_tell(send_buffer))
-	//show_debug_message("server sent mid3")
+	log_buffer_sent(3)
 }	

@@ -16,3 +16,5 @@ handshake_sent[0] = 0		//	handshake_sent[ID] = packet
 player_list = ds_list_create()
 ip_list = ds_list_create()
 port_list = ds_list_create()
+
+ds_list_add(debug.objects,id)

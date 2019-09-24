@@ -5,7 +5,7 @@ with network {
 	buffer_seek(send_buffer,buffer_seek_start,0)
 	buffer_write(send_buffer,buffer_u8,3)
 	
-	var _list = ds_list_write(network.player_list)
+	var _list = ds_list_write(server.player_list)
 	buffer_write(send_buffer,buffer_string,_list)
 	
 	buffer_write(send_buffer,buffer_u32,ds_list_find_index(server.ip_list,_remote_ip))

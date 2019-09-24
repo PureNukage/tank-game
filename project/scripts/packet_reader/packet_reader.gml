@@ -64,6 +64,7 @@ switch(mid) {
 			server.handshake[_ID]++
 			for(var i=0;i<ds_list_size(server.player_list);i++) {
 				server.handshake[i]--
+				show_message("player: "+string(i)+" reconnecting")
 			}
 		}	else {
 			var _string_adv = "server - received " + script_get_name(mid+2) + " extra packet tossed"
@@ -80,15 +81,18 @@ switch(mid) {
 		
 		if network.handshake == 1 {
 			
-			var _string = "network - received " + script_get_name(mid+2)
-			ds_list_add(debug.log,_string)			
+			var old = ds_list_size(network.player_list) 
+			var new = ds_list_size(_player_list)			
+			
+			var _string = "network - received " + script_get_name(mid+2)			
+			ds_list_add(debug.log,_string)
+			_string = "network - mid3scan - new player count: " +string(new)
+			ds_list_add(debug.log,_string)
 			
 			if ds_list_size(network.player_list) < ds_list_size(_player_list) {
-				var old = ds_list_size(network.player_list) 
-				var new = ds_list_size(_player_list)
 				network.player_count = new
-				//show_message("old player count: " +string(old))
-				//show_message("new player count: " +string(new))
+				show_message("old player count: " +string(old))
+				show_message("new player count: " +string(new))
 				for(var i=old;i<new;i++) {
 					var newplayer = instance_create_layer(0,0,"Instances",tankPlayer)
 					var _string = "network - welcome, player " +string(i)
@@ -145,6 +149,8 @@ switch(mid) {
 		_mouse_left_pressed,_cursor_x,_cursor_y)
 		
 		for(var i=0;i<ds_list_size(server.player_list);i++) {
+			var _string = "server - mid11scan ID: "+string(i)
+			ds_list_add(debug.log,_string)
 			network_send_udp(server.socket,server.ip_list[| i],server.port_list[| i],_buffer,buffer_tell(_buffer))
 			//log_buffer_sent(11)
 		}

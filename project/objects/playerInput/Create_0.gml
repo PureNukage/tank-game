@@ -8,5 +8,7 @@ keybind_down = ord("S")
 
 mouse_left_pressed = mouse_check_button_pressed(mb_left)
 
+ds_list_add(debug.objects,id)
+
 
 

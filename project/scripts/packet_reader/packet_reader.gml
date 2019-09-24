@@ -6,14 +6,12 @@ switch(mid) {
 		var _name = buffer_read(buffer,buffer_string)
 		
 		var new_players_number = ds_list_size(server.player_list)
-		//show_message("server - mid 0 received!")		
-		//show_message(string(object_get_name(object_index)))
-		//show_message("packet: "+string(_packet))
-		//show_message("new player requesting: "+string(new_players_number))	
-		//show_message("current player handshake: "+string(server.handshake[new_players_number]))
 		
 		if server.handshake[new_players_number] == 0 and server.packet_in[new_players_number,0] == -1 {
-			//show_message("handshake met. welcome player "+string(new_players_number))
+
+			var _string = "server - received " + script_get_name(mid+2)
+			ds_list_add(debug.log,_string)
+
 			server.handshake[new_players_number] = 1
 			server.handshake[new_players_number+1] = 0
 			server.packet_in[new_players_number,mid] = _packet
@@ -26,38 +24,51 @@ switch(mid) {
 				server.packet_out[new_players_number+1,i] = -1
 				server.handshake_sent[new_players_number+1] = -1
 			}
+		} else {
+			
+			var _string_adv = "server - received " + script_get_name(mid+2) + " extra packet tossed"
+			ds_list_add(debug.log,_string_adv)		
+			
 		}
 		
 		
 	
 	break;
 	case 1:		//Network - Handshake Received
-		var _player_count = buffer_read(buffer,buffer_u32)
+		var _player_count = buffer_read(buffer,buffer_u32)		
 		
 		if network.handshake == 0 {
-			//show_message("network - handshake received. welcome, player "+string(_player_count))
+			var _string = "network - received " + script_get_name(mid+2)
+			ds_list_add(debug.log,_string)
 			network.ID = _player_count
 			network.handshake++
+		} else {
+			
+			var _string_adv = "network - received " + script_get_name(mid+2) + " extra packet tossed"
+			ds_list_add(debug.log,_string_adv)	
+			
 		}
 		
 	break;
 	case 2:		//Server - Handshake Established
 		var _packet = buffer_read(buffer,buffer_u32)
-		var _ID = buffer_read(buffer,buffer_u8)
-
-		//show_message("server - handshake established with player "+string(_ID))
-		//show_message("Packet: "+string(_packet))		
-		//show_message("ID: "+string(_ID))
+		var _ID = buffer_read(buffer,buffer_u8)	
 		
 		if server.packet_in[_ID,mid] == -1 {
+			
+			var _string = "server - received " + script_get_name(mid+2)
+			ds_list_add(debug.log,_string)			
+			
 			server.packet_in[_ID,mid] = _packet
 			server.handshake[_ID]++
 			server.handshake[_ID]++
 			for(var i=0;i<ds_list_size(server.player_list);i++) {
 				server.handshake[i]--
-				show_message("handshake for player "+string(i) +" "+string(server.handshake[i]))
 			}
-		}	
+		}	else {
+			var _string_adv = "server - received " + script_get_name(mid+2) + " extra packet tossed"
+			ds_list_add(debug.log,_string_adv)		
+		}
 		
 		
 	break;
@@ -65,9 +76,13 @@ switch(mid) {
 		var _player_list_compiled = buffer_read(buffer,buffer_string)
 		var _ID = buffer_read(buffer,buffer_u32)
 		var _player_list = ds_list_create()
-		_player_list = ds_list_read(_player_list,_player_list_compiled)
+		ds_list_read(_player_list,_player_list_compiled)		
 		
 		if network.handshake == 1 {
+			
+			var _string = "network - received " + script_get_name(mid+2)
+			ds_list_add(debug.log,_string)			
+			
 			if ds_list_size(network.player_list) < ds_list_size(_player_list) {
 				var old = ds_list_size(network.player_list) 
 				var new = ds_list_size(_player_list)
@@ -75,7 +90,9 @@ switch(mid) {
 				//show_message("old player count: " +string(old))
 				//show_message("new player count: " +string(new))
 				for(var i=old;i<new;i++) {
-					var newplayer = instance_create_layer(0,0,"Instances",tankPlayer)	
+					var newplayer = instance_create_layer(0,0,"Instances",tankPlayer)
+					var _string = "network - welcome, player " +string(i)
+					ds_list_add(debug.log,_string)
 					if _ID != network.ID { 
 						//instance_destroy(newplayer.input_handler)
 						//newplayer.input_handler = instance_create_layer(0,0,"Instances",multiplayerInput)
@@ -84,6 +101,11 @@ switch(mid) {
 				}
 			}
 			network.handshake++
+		} else {
+			
+			var _string_adv = "network - received " + script_get_name(mid+2) + " extra packet tossed"
+			ds_list_add(debug.log,_string_adv)	
+				
 		}
 
 		
@@ -124,6 +146,7 @@ switch(mid) {
 		
 		for(var i=0;i<ds_list_size(server.player_list);i++) {
 			network_send_udp(server.socket,server.ip_list[| i],server.port_list[| i],_buffer,buffer_tell(_buffer))
+			//log_buffer_sent(11)
 		}
 
 	break;

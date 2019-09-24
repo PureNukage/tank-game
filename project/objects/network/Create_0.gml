@@ -18,3 +18,5 @@ send_buffer = buffer_create(1024,buffer_fixed,1)
 
 var player_input = instance_create_layer(0,0,"Instances",playerInput)
 
+ds_list_insert(debug.objects,2,id)
+

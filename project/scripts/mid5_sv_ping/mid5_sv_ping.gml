@@ -7,4 +7,5 @@ with network {
 	buffer_write(send_buffer,buffer_u32,_ID)
 	buffer_write(send_buffer,buffer_u32,_client_time)
 	network_send_udp(server.socket,server.ip_list[| _ID],server.port_list[| _ID],send_buffer,buffer_tell(send_buffer))
+	//log_buffer_sent(5)
 }

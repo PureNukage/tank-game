@@ -108,7 +108,7 @@ switch(mid) {
 				network.player_list = _player_list
 				network.player_count = ds_list_size(_player_list)
 				
-				for(var i=0;i<ds_list_size(_player_list);i++) {
+				for(var i=old;i<ds_list_size(_player_list);i++) {
 					if instance_number(tankPlayer) != network.player_count {
 						var newplayer = instance_create_layer(0,0,"Instances",tankPlayer)
 						var _string = "network - welcome, player " +string(i) +" " +string(_player_list[| i])
@@ -148,8 +148,6 @@ switch(mid) {
 		
 	break;
 	case 10:	// Server - Player Input Packet
-	
-		//show_message("received mid10")
 
 		var _ID = buffer_read(buffer,buffer_u32)
 		var _key_right = buffer_read(buffer,buffer_u32)
@@ -165,7 +163,7 @@ switch(mid) {
 		
 		for(var i=0;i<ds_list_size(server.player_list);i++) {
 			if debug.logging == logging.verbose { 
-				var _string = "server - DEBUGG mid11scan ID: "+string(i)
+				//var _string = "server - DEBUGG mid11scan ID: "+string(i)
 				ds_list_add(debug.log,_string)
 			}
 			network_send_udp(server.socket,server.ip_list[| i],server.port_list[| i],_buffer,buffer_tell(_buffer))

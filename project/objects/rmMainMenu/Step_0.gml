@@ -5,6 +5,7 @@ for(var i=0;i<2;i++) {
 			switch(i) {
 				case 0:
 					instance_create_layer(0,0,"Instances",network)
+					network.ip = get_string("Server IP:","")
 					room_goto_next()
 				break;
 				case 1:

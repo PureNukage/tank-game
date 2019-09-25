@@ -7,3 +7,5 @@ name = ""
 
 instance_create_layer(x,y,"Instances",cursor)
 
+ds_list_add(debug.objects,id)
+

@@ -7,33 +7,39 @@ switch(mid) {
 		
 		var new_players_number = ds_list_size(server.player_list)
 		
-		ds_list_add(debug.log,"server - misc - ds_list_size(server.player_list) = "+string(new_players_number))
+		//Check ip and port and toss if already connected
+		if ds_list_find_index(server.port_list,server.remote_port) == -1 {
 		
-		if server.handshake[new_players_number] == 0 and server.packet_in[new_players_number,0] == -1 {
-
-			var _string = "server - received " + script_get_name(mid+2)
-			ds_list_add(debug.log,_string)
-
-			server.handshake[new_players_number] = 1
-			server.handshake[new_players_number+1] = 0
-			server.packet_in[new_players_number,mid] = _packet
-			ds_list_insert(server.player_list,0,_name)
-			ds_list_insert(server.ip_list,0,server.remote_ip)
-			ds_list_insert(server.port_list,0,server.remote_port)
-			server.player_count++
-			for(var i=0;i<network.mids+4;i++) {
-				server.packet_in[new_players_number,i] = -1
-				server.packet_in[new_players_number+1,i] = -1
-				server.packet_out[new_players_number+1,i] = -1
-				server.handshake_sent[new_players_number+1] = -1
-			}
-		} else {
+			ds_list_add(debug.log,"server - DEBUGG - ds_list_size(server.player_list) = "+string(new_players_number))
+		
+			if server.handshake[new_players_number] == 0 and server.packet_in[new_players_number,0] == -1 {
 			
+				var _stringdebug1 = "server - DEBUGG server.handshake["+string(new_players_number)+"] = " +string(server.handshake[new_players_number])
+				var _stringdebug2 = "server - DEBUGG server.packet_in["+string(new_players_number)+",0] = "+string(server.packet_in[new_players_number,0])
+				ds_list_add(debug.log,_stringdebug1,_stringdebug2)
+
+				var _string = "server - received " + script_get_name(mid+2)
+				ds_list_add(debug.log,_string)
+
+				server.handshake[new_players_number] = 1
+				server.handshake[new_players_number+1] = 0
+				server.packet_in[new_players_number,mid] = _packet
+				ds_list_insert(server.player_list,0,_name)
+				ds_list_insert(server.ip_list,0,server.remote_ip)
+				ds_list_insert(server.port_list,0,server.remote_port)
+				server.player_count++
+				for(var i=0;i<network.mids+4;i++) {
+					server.packet_in[new_players_number,i] = -1
+					server.packet_in[new_players_number+1,i] = -1
+					server.packet_out[new_players_number+1,i] = -1
+					server.handshake_sent[new_players_number+1] = -1
+				}
+			} 						
+		} else {		
 			var _string_adv = "server - received " + script_get_name(mid+2) + " extra packet tossed"
-			ds_list_add(debug.log,_string_adv)		
-			
-		}
-		
+			var _string_adv2 = "server - DEBUGG packet received from port: "+string(server.remote_port)
+			ds_list_add(debug.log,_string_adv,_string_adv2)	
+		}	
 		
 	
 	break;
@@ -42,7 +48,7 @@ switch(mid) {
 		
 		if network.handshake == 0 {
 			var _string = "network - received " + script_get_name(mid+2)
-			var _string2 = "network - misc - network id is now: "+string(_player_count)
+			var _string2 = "network - DEBUGG - network id is now: "+string(_player_count)
 			ds_list_add(debug.log,_string)
 			ds_list_add(debug.log,_string2)
 			network.ID = _player_count
@@ -105,7 +111,7 @@ switch(mid) {
 				for(var i=0;i<ds_list_size(_player_list);i++) {
 					if instance_number(tankPlayer) != network.player_count {
 						var newplayer = instance_create_layer(0,0,"Instances",tankPlayer)
-						var _string = "network - welcome, player " +string(i) +string(_player_list[| i])
+						var _string = "network - welcome, player " +string(i) +" " +string(_player_list[| i])
 						ds_list_add(debug.log,_string)
 						newplayer.ID = i
 					}

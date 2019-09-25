@@ -3,9 +3,9 @@ if keyboard_check_pressed(vk_control) {
 	if _mode >= 3 mode = 0 else mode++
 }
 
-if ds_list_size(debug.log) > 48 {
-	ds_list_clear(debug.log)	
-}
+//if ds_list_size(debug.log) > 48 {
+//	ds_list_clear(debug.log)	
+//}
 
 if keyboard_check_pressed(vk_up) or keyboard_check_pressed(vk_down) {
 	var _direction = keyboard_check_pressed(vk_up) - keyboard_check_pressed(vk_down)

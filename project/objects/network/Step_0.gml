@@ -3,7 +3,6 @@ switch(handshake)
 	case 0:
 		if handshake_sent != packet and (packet - handshake_sent) > 10 {
 			mid0_nw_handshake_request(packet)
-			//show_message("network - mid0 sent")
 			handshake_sent = packet
 			packet++
 		} else packet++

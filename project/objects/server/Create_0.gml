@@ -11,6 +11,7 @@ packet_out[0,1] = -1
 packet_stack[0,0] = ds_queue_create()
 handshake[0] = 0
 handshake_sent[0] = 0		//	handshake_sent[ID] = packet
+player_count = 0
 player_list = ds_list_create()
 ip_list = ds_list_create()
 port_list = ds_list_create()

@@ -7,6 +7,8 @@ switch(mid) {
 		
 		var new_players_number = ds_list_size(server.player_list)
 		
+		ds_list_add(debug.log,"server - misc - ds_list_size(server.player_list) = "+string(new_players_number))
+		
 		if server.handshake[new_players_number] == 0 and server.packet_in[new_players_number,0] == -1 {
 
 			var _string = "server - received " + script_get_name(mid+2)
@@ -15,10 +17,11 @@ switch(mid) {
 			server.handshake[new_players_number] = 1
 			server.handshake[new_players_number+1] = 0
 			server.packet_in[new_players_number,mid] = _packet
-			ds_list_add(server.player_list,_name)
-			ds_list_add(server.ip_list,server.remote_ip)
-			ds_list_add(server.port_list,server.remote_port)
-			for(var i=0;i<network.mids;i++) {
+			ds_list_insert(server.player_list,0,_name)
+			ds_list_insert(server.ip_list,0,server.remote_ip)
+			ds_list_insert(server.port_list,0,server.remote_port)
+			server.player_count++
+			for(var i=0;i<network.mids+4;i++) {
 				server.packet_in[new_players_number,i] = -1
 				server.packet_in[new_players_number+1,i] = -1
 				server.packet_out[new_players_number+1,i] = -1
@@ -154,12 +157,14 @@ switch(mid) {
 		_mouse_left_pressed,_cursor_x,_cursor_y)
 		
 		for(var i=0;i<ds_list_size(server.player_list);i++) {
-			if debug.logging = logging.verbose { 
+			if debug.logging == logging.verbose { 
 				var _string = "server - mid11scan ID: "+string(i)
 				ds_list_add(debug.log,_string)
 			}
 			network_send_udp(server.socket,server.ip_list[| i],server.port_list[| i],_buffer,buffer_tell(_buffer))
-			//log_buffer_sent(11)
+			var _ip = server.ip_list[| i]
+			var _port = server.port_list[| i]
+			//log_buffer_sent(8)
 		}
 
 	break;
@@ -172,6 +177,8 @@ switch(mid) {
 		var _mouse_left_pressed = buffer_read(buffer,buffer_u32)
 		var _cursor_x = buffer_read(buffer,buffer_u32)
 		var _cursor_y = buffer_read(buffer,buffer_u32)
+		
+		//ds_list_add(debug.log,"network - received mid11 for player: "+string(_ID))
 		
 		with tank {
 			if ID == _ID { 
@@ -187,6 +194,6 @@ switch(mid) {
 	break;
 }
 
-if mid >= 11 and network.handshake == 1 {
+if mid == 3 and network.handshake == 1 {
 	network.handshake = 2
 } 

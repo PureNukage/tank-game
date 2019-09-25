@@ -10,5 +10,5 @@ with network {
 	buffer_write(send_buffer,buffer_u32,playerInput.cursor_x)
 	buffer_write(send_buffer,buffer_u32,playerInput.cursor_y)
 	network_send_udp(socket,ip,port,send_buffer,buffer_tell(send_buffer))
-	//log_buffer_sent(10)
+	//log_buffer_sent(7)
 }

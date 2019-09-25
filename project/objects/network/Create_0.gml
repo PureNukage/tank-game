@@ -3,6 +3,7 @@ packet = 0
 packet_received = 0
 ip = "127.0.0.1"
 port = 7000
+ID = 0
 port_client = get_integer("Port: ",7001)
 socket = network_create_socket_ext(network_socket_udp,port_client)
 name = get_string("Nickname","")

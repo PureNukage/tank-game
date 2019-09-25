@@ -39,13 +39,15 @@ switch(mid) {
 		
 		if network.handshake == 0 {
 			var _string = "network - received " + script_get_name(mid+2)
+			var _string2 = "network - misc - network id is now: "+string(_player_count)
 			ds_list_add(debug.log,_string)
+			ds_list_add(debug.log,_string2)
 			network.ID = _player_count
 			network.handshake++
 		} else {
 			
-			var _string_adv = "network - received " + script_get_name(mid+2) + " extra packet tossed"
-			ds_list_add(debug.log,_string_adv)	
+			//var _string_adv = "network - received " + script_get_name(mid+2) + " extra packet tossed"
+			//ds_list_add(debug.log,_string_adv)	
 			
 		}
 		
@@ -98,7 +100,7 @@ switch(mid) {
 				network.player_count = ds_list_size(_player_list)
 				
 				for(var i=0;i<ds_list_size(_player_list);i++) {
-					if instance_number(tankPlayer) != player_count {
+					if instance_number(tankPlayer) != network.player_count {
 						var newplayer = instance_create_layer(0,0,"Instances",tankPlayer)
 						var _string = "network - welcome, player " +string(i) +string(_player_list[| i])
 						ds_list_add(debug.log,_string)
@@ -185,6 +187,6 @@ switch(mid) {
 	break;
 }
 
-if mid > 2 and network.handshake != 2 {
+if mid >= 11 and network.handshake == 1 {
 	network.handshake = 2
 } 

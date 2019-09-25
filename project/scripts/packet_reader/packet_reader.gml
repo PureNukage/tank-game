@@ -114,6 +114,7 @@ switch(mid) {
 						var _string = "network - welcome, player " +string(i) +" " +string(_player_list[| i])
 						ds_list_add(debug.log,_string)
 						newplayer.ID = i
+						newplayer.name = ds_list_find_value(network.player_list,i)
 					}
 				}
 				

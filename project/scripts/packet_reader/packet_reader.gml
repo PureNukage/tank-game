@@ -24,9 +24,9 @@ switch(mid) {
 				server.handshake[new_players_number] = 1
 				server.handshake[new_players_number+1] = 0
 				server.packet_in[new_players_number,mid] = _packet
-				ds_list_insert(server.player_list,0,_name)
-				ds_list_insert(server.ip_list,0,server.remote_ip)
-				ds_list_insert(server.port_list,0,server.remote_port)
+				ds_list_add(server.player_list,_name)
+				ds_list_add(server.ip_list,server.remote_ip)
+				ds_list_add(server.port_list,server.remote_port)
 				server.player_count++
 				for(var i=0;i<network.mids+4;i++) {
 					server.packet_in[new_players_number,i] = -1
@@ -165,7 +165,7 @@ switch(mid) {
 		
 		for(var i=0;i<ds_list_size(server.player_list);i++) {
 			if debug.logging == logging.verbose { 
-				var _string = "server - mid11scan ID: "+string(i)
+				var _string = "server - DEBUGG mid11scan ID: "+string(i)
 				ds_list_add(debug.log,_string)
 			}
 			network_send_udp(server.socket,server.ip_list[| i],server.port_list[| i],_buffer,buffer_tell(_buffer))

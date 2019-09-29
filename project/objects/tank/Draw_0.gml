@@ -19,4 +19,9 @@ if flash > 0 {
 }
 
 //health bar
-draw_healthbar(x-16,y-55,x+16,y-45,hp,c_black,c_red,c_green,0,true,true)
+draw_healthbar(x-16,y-85,x+16,y-75,hp,c_black,c_red,c_green,0,true,true)
+
+//Draw Name
+draw_set_halign(fa_middle)
+draw_text(x,y-65,name)
+draw_set_halign(fa_left)

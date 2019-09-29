@@ -28,11 +28,6 @@ if ds_list_size(list_enemies) >= 5 and flash == 0 {
 	flash = 25
 }
 
-if hp <= 0 {
-	show_message("You died!")
-	game_restart()
-}
-
 if flash flash--
 
 //Shooting
@@ -85,5 +80,7 @@ if speed > 0 {
 	instance_create_layer(_dust_x_2+random_range(-4,4),_dust_y_2+random_range(-4,4),"Instances",dust)
 }
 
-x = clamp(x, 0, room_width);
-y = clamp(y, 0, room_height);
+x = clamp(x, 0, room_width)
+y = clamp(y, 0, room_height)
+
+

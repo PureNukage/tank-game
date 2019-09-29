@@ -57,6 +57,7 @@ if (_a > 0) {
 	        zspeed = _vsp;
 	        z_gravity = -_g;
 	        z = other.z;
+			ID = other.ID
 	    }
 		shooting_timer = 25
 		friction = 0

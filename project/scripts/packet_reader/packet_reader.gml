@@ -197,6 +197,19 @@ switch(mid) {
 			}
 		}
 	break;
+	case 14:	// Network - Player Damage
+		
+		var _attackerID = buffer_read(buffer,buffer_u32)
+		var _victimID = buffer_read(buffer,buffer_u32)
+		
+		with tank {
+			if ID == _victimID and flash == 0 {
+				hp -= 25 
+				flash = 25
+			}	
+		}
+			
+	break;
 }
 
 if mid == 3 and network.handshake == 1 {

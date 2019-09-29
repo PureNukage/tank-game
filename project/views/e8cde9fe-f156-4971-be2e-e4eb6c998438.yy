@@ -12,7 +12,9 @@
         "37d52400-32cf-4936-b89e-25c062f29844",
         "d36328f0-3134-4561-a5e1-81e2ec40e3c5",
         "df5d63ca-780d-482b-94ca-d2dbe82e41b1",
-        "1cca442c-542c-48c7-89fb-6c97a0617000"
+        "1cca442c-542c-48c7-89fb-6c97a0617000",
+        "8fd88405-db8e-4527-866f-5325ce1cc257",
+        "ca1bde1e-a621-4f30-907e-fc49b852ee98"
     ],
     "filterType": "GMScript",
     "folderName": "mids",

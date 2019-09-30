@@ -18,5 +18,3 @@ switch(handshake)
 		mid5_nw_ping()
 	break;
 }
-
-

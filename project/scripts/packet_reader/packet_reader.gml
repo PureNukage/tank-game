@@ -110,7 +110,14 @@ switch(mid) {
 				
 				for(var i=old;i<ds_list_size(_player_list);i++) {
 					if instance_number(tankPlayer) != network.player_count {
-						var newplayer = instance_create_layer(0,0,"Instances",tankPlayer)
+						if i == network.ID {
+							var _camera = instance_create_layer(x,y,"Instances",camera)
+							_camera.ID = i
+						}
+						var _x = irandom_range(15,room_width-15)
+						var _y = irandom_range(15,room_height-15)
+						
+						var newplayer = instance_create_layer(_x,_y,"Instances",tankPlayer)
 						var _string = "network - welcome, player " +string(i) +" " +string(_player_list[| i])
 						ds_list_add(debug.log,_string)
 						newplayer.ID = i
@@ -241,6 +248,10 @@ switch(mid) {
 				flash = 25
 				if hp == 0 {
 					network.kills[_attackerID]++	
+					if network.kills[_attackerID] == 10 {
+						show_message("Game Over! Player "+network.player_list[| _attackerID]+" with " +string(network.kills[_attackerID])+" kills.")
+						game_end()
+					}
 				}
 			}	
 		}

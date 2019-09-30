@@ -12,6 +12,7 @@ player_list = ds_list_create()
 handshake = 0
 handshake_sent = 0
 mids = 4
+kills = []
 
 send_buffer = buffer_create(1024,buffer_fixed,1)
 

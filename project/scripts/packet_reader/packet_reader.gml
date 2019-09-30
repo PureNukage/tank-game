@@ -115,6 +115,7 @@ switch(mid) {
 						ds_list_add(debug.log,_string)
 						newplayer.ID = i
 						newplayer.name = ds_list_find_value(network.player_list,i)
+						network.kills[i] = 0
 					}
 				}
 				
@@ -197,6 +198,38 @@ switch(mid) {
 			}
 		}
 	break;
+	case 12:	// Server - Player Sync Packet
+		var _ID  = buffer_read(buffer,buffer_u32)
+		var _x = buffer_read(buffer,buffer_u32)
+		var _y = buffer_read(buffer,buffer_u32)
+		var _body_angle = buffer_read(buffer,buffer_s32)
+		var _turret_angle = buffer_read(buffer,buffer_s32)
+		var _hp = buffer_read(buffer,buffer_u32)
+		
+		mid13_sv_playerSync(_ID,_x,_y,_body_angle,_turret_angle,_hp)
+		
+	
+	break;
+	case 13:	// Network - Player Sync Packet
+	
+		var _ID  = buffer_read(buffer,buffer_u32)
+		var _x = buffer_read(buffer,buffer_u32)
+		var _y = buffer_read(buffer,buffer_u32)
+		var _body_angle = buffer_read(buffer,buffer_s32)
+		var _turret_angle = buffer_read(buffer,buffer_s32)
+		var _hp = buffer_read(buffer,buffer_u32)
+		
+		with tank {
+			if ID = _ID {
+				x = _x
+				y = _y
+				body_angle = _body_angle
+				turret_angle = _turret_angle
+				hp = _hp
+			}
+		}
+	
+	break;
 	case 14:	// Network - Player Damage
 		
 		var _attackerID = buffer_read(buffer,buffer_u32)
@@ -206,6 +239,9 @@ switch(mid) {
 			if ID == _victimID and flash == 0 {
 				hp -= 25 
 				flash = 25
+				if hp == 0 {
+					network.kills[_attackerID]++	
+				}
 			}	
 		}
 			

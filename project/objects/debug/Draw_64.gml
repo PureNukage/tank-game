@@ -21,8 +21,10 @@ switch(mode)
 	break;
 }
 
-draw_set_halign(fa_right)
-draw_text(1010,15,"object_name: " +string(object_get_name(object_id.object_index)))
-draw_text(1010,30,"debug mode: "+string(mode))
-draw_text(1010,45,"current object: "+string(object_index_count+1) + " / " +string(ds_list_size(objects)))
-draw_set_halign(fa_left)
+if mode > 0 {
+	draw_set_halign(fa_right)
+	draw_text(1010,15,"object_name: " +string(object_get_name(object_id.object_index)))
+	draw_text(1010,30,"debug mode: "+string(mode))
+	draw_text(1010,45,"current object: "+string(object_index_count+1) + " / " +string(ds_list_size(objects)))
+	draw_set_halign(fa_left)
+}
